@@ -21,8 +21,25 @@ function main() {
 
   // console.log(lotr);
 
-  console.log(lotr.get('maiar'));
-  console.log(lotr.get('hobbit'));
+  // console.log(lotr.get('maiar'));
+  // console.log(lotr.get('hobbit'));
+
+  console.log(duplicates('google all that you think can think of'));
+}
+
+function duplicates(str) {
+  let dupHash = new Map();
+  let ansStr = '';
+
+  for (let i = 0; i < str.length; i++) {
+    
+    if (!dupHash.has(str[i])) {
+      dupHash.set(str[i]);
+      ansStr += str[i];
+    }
+  }
+
+  return ansStr;
 }
 
 main();
