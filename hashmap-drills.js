@@ -25,6 +25,9 @@ function main() {
   // console.log(lotr.get('hobbit'));
 
   // console.log(duplicates('google all that you think can think of'));
+
+  console.log(sort('East'));
+  console.log(anagrams(['east', 'cars', 'acre', 'arcs', 'teas', 'eats', 'race']));
 }
 
 function duplicates(str) {
@@ -63,11 +66,35 @@ function palindrome(str) {
   }
 }
 
+function anagrams(words){
+  let values = [];
+  let hash = new Map();
 
-function anagrams(){
+  words.forEach(word => {
+    let key = sort(word);
 
+    if (!hash.has(key)) {
+      hash.set(key, [word])
+    } else {
+      let group = hash.get(key);
+
+      group.push(word);
+    }
+  })
+
+  for (let group of hash.values()) {
+    values.push(group);
+  }
+
+  return values;
 }
-console.log(anagrams(['east', 'cars', 'acre', 'arcs', 'teas', 'eats', 'race', 'dbst']));
+
+function sort(str) {
+  let ans = str.toLowerCase().split('');
+  return ans.sort().join('');
+}
+
+
 
 
 
