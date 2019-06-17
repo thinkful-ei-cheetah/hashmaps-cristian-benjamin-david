@@ -74,13 +74,13 @@ function anagrams(words){
     let key = sort(word);
 
     if (!hash.has(key)) {
-      hash.set(key, [word])
+      hash.set(key, [word]);
     } else {
       let group = hash.get(key);
 
       group.push(word);
     }
-  })
+  });
 
   for (let group of hash.values()) {
     values.push(group);
