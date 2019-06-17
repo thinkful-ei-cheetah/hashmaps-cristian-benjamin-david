@@ -32,7 +32,7 @@ function duplicates(str) {
   let ansStr = '';
 
   for (let i = 0; i < str.length; i++) {
-    
+
     if (!dupHash.has(str[i])) {
       dupHash.set(str[i]);
       ansStr += str[i];
@@ -48,20 +48,29 @@ function palindrome(str) {
 
   for (let i = 0; i < str.length; i++) {
     if (!palHash.has(str[i])) {
-      palHash.set(str[i])
+      palHash.set(str[i]);
     } else {
-      pairCounter++
-      palHash.delete(str[i])
+      pairCounter++;
+      palHash.delete(str[i]);
     }
 
   }
 
   if (str.length % 2 === 0) {
-    return pairCounter === str.length/2
+    return pairCounter === str.length / 2;
   } else {
-    return pairCounter === (str.length/2) - .5
+    return pairCounter === (str.length / 2) - .5;
   }
 }
+
+
+function anagrams(){
+
+}
+console.log(anagrams(['east', 'cars', 'acre', 'arcs', 'teas', 'eats', 'race', 'dbst']));
+
+
+
 
 
 main();
