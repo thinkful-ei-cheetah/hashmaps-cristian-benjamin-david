@@ -24,7 +24,7 @@ function main() {
   // console.log(lotr.get('maiar'));
   // console.log(lotr.get('hobbit'));
 
-  console.log(duplicates('google all that you think can think of'));
+  // console.log(duplicates('google all that you think can think of'));
 }
 
 function duplicates(str) {
@@ -41,6 +41,28 @@ function duplicates(str) {
 
   return ansStr;
 }
+
+function palindrome(str) {
+  let palHash = new Map();
+  let pairCounter = 0;
+
+  for (let i = 0; i < str.length; i++) {
+    if (!palHash.has(str[i])) {
+      palHash.set(str[i])
+    } else {
+      pairCounter++
+      palHash.delete(str[i])
+    }
+
+  }
+
+  if (str.length % 2 === 0) {
+    return pairCounter === str.length/2
+  } else {
+    return pairCounter === (str.length/2) - .5
+  }
+}
+
 
 main();
 
